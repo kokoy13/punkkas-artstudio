@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import portrait from "../assets/placeholder/about-barber-portrait.jpg";
-import darkart from "../assets/placeholder/darkart-skull-candles.jpg";
+import sketchbook from "../assets/real/about-sketchbook.jpg";
+import darkart from "../assets/real/about-darkart-lantern.jpg";
 ---
 
 <section id="tentang" class="relative overflow-hidden bg-void py-20 md:py-32">
@@ -24,17 +24,17 @@ import darkart from "../assets/placeholder/darkart-skull-candles.jpg";
 
     <div class="reveal grid grid-cols-2 gap-4 md:col-span-6 md:col-start-7 md:mt-12">
       <Image
-        src={portrait}
-        alt="Detail gunting rambut, gaya kerja barber Punk'kas"
+        src={sketchbook}
+        alt="Sketsa dan lukisan dark art karya Regi di buku gambar pribadinya"
         class="col-span-2 h-64 w-full object-cover md:h-80"
-        widths={[400, 800]}
+        widths={[400, 525]}
         sizes="(min-width: 768px) 40vw, 90vw"
       />
       <Image
         src={darkart}
-        alt="Dekorasi dark art buatan sendiri di dalam studio"
+        alt="Lampu petromak tua dan dekorasi dark art buatan sendiri di dalam studio"
         class="col-span-2 h-48 w-full translate-y-0 object-cover md:col-span-1 md:h-56 md:translate-y-8"
-        widths={[300, 600]}
+        widths={[300, 525]}
         sizes="(min-width: 768px) 20vw, 90vw"
       />
       <div

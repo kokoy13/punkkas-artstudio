@@ -1,16 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "./Icon.astro";
-import heroImage from "../assets/placeholder/hero-barbershop-neon.jpg";
+import heroImage from "../assets/real/hero-studio.jpg";
 import { site, whatsappLink } from "../data/site";
 ---
 
 <section id="top" class="relative flex min-h-[100dvh] items-end overflow-hidden bg-void">
   <Image
     src={heroImage}
-    alt="Suasana barbershop gelap dengan lampu neon, referensi visual Punk'kas Art Studio"
-    class="absolute inset-0 h-full w-full object-cover object-[70%_30%]"
-    widths={[640, 1024, 1600, 2000]}
+    alt="Regi, pemilik Punk'kas Art Studio, duduk di kursi barber di dalam studionya di Terminal Guguak Katitiran"
+    class="absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+    widths={[400, 528]}
     sizes="100vw"
     fetchpriority="high"
     loading="eager"
@@ -26,6 +26,7 @@ import { site, whatsappLink } from "../data/site";
     >
       <span id="status-dot" class="h-2 w-2 rounded-full bg-ash"></span>
       <span id="status-text">Memuat jam buka</span>
+      <span id="status-next" class="text-ash/70"></span>
     </div>
 
     <h1 class="font-display text-5xl uppercase leading-[0.95] text-bone sm:text-6xl md:text-7xl">
@@ -61,22 +62,25 @@ import { site, whatsappLink } from "../data/site";
 </section>
 
 <script>
-  import { isOpenNow } from "../data/site";
+  import { isOpenNow, nextOpenLabel } from "../data/site";
 
   const dot = document.getElementById("status-dot");
   const text = document.getElementById("status-text");
+  const next = document.getElementById("status-next");
 
   function updateStatus() {
     const open = isOpenNow();
-    if (!dot || !text) return;
+    if (!dot || !text || !next) return;
     if (open) {
       dot.className = "h-2 w-2 rounded-full bg-open animate-pulse";
       text.textContent = "Buka sekarang";
       text.className = "text-open";
+      next.textContent = "";
     } else {
       dot.className = "h-2 w-2 rounded-full bg-ash";
       text.textContent = "Tutup";
       text.className = "text-ash";
+      next.textContent = `· ${nextOpenLabel()}`;
     }
   }
 

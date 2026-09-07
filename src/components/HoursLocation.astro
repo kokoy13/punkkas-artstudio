@@ -2,8 +2,8 @@
 import Icon from "./Icon.astro";
 import { site } from "../data/site";
 
-const mapsEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(site.mapsQuery)}&output=embed`;
-const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`;
+// Koordinat hasil resolve dari link Google Maps asli pemilik (maps.app.goo.gl/9JVwCKMcetKGYJCB8).
+const mapsEmbedSrc = "https://maps.google.com/maps?q=-0.455536,100.598238&z=17&output=embed";
 ---
 
 <section id="lokasi" class="border-t border-border bg-surface py-20 md:py-32">
@@ -29,7 +29,7 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
         </div>
 
         <a
-          href={mapsLink}
+          href={site.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-6 inline-flex items-center gap-2 border border-bone/30 px-6 py-3 text-sm font-medium text-bone transition-colors hover:border-bone"

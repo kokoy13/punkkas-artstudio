@@ -1,64 +1,63 @@
 ---
 import { Image } from "astro:assets";
-import haircutAction from "../assets/placeholder/gallery-haircut-action.jpg";
-import neonSign from "../assets/placeholder/gallery-neon-sign.jpg";
-import kidHaircut from "../assets/placeholder/gallery-kid-haircut.jpg";
-import skullCandle from "../assets/placeholder/darkart-skull-candle.jpg";
-import beardTrim from "../assets/placeholder/gallery-beard-trim.jpg";
-import clipperDetail from "../assets/placeholder/detail-clipper.jpg";
+import laughCut from "../assets/real/gallery-laugh-cut.jpg";
+import skull from "../assets/real/gallery-skull.jpg";
+import kid from "../assets/real/gallery-kid.jpg";
+import portrait2 from "../assets/real/gallery-portrait2.jpg";
+import portrait1 from "../assets/real/gallery-portrait1.jpg";
+import portrait3 from "../assets/real/gallery-portrait3.jpg";
 ---
 
 <section id="galeri" class="bg-void py-20 md:py-32">
   <div class="mx-auto max-w-6xl px-5 md:px-8">
     <h2 class="reveal font-display text-4xl uppercase text-bone md:text-5xl">Galeri</h2>
     <p class="reveal mt-4 max-w-[60ch] text-ash">
-      Proses pangkas dan koleksi dark art yang menghiasi studio. Foto masih dari arsip
-      sementara, akan diganti dengan hasil jepretan asli Punk'kas.
+      Proses pangkas dan koleksi dark art yang menghiasi studio, langsung dari lensa Punk'kas.
     </p>
 
     <div
       class="reveal mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[180px] md:gap-4"
     >
       <Image
-        src={haircutAction}
-        alt="Proses pangkas rambut di kursi barber"
-        class="col-span-2 row-span-2 h-full min-h-[220px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[400, 800]}
+        src={laughCut}
+        alt="Pelanggan tertawa saat rambutnya dirapikan di kursi barber Punk'kas"
+        class="col-span-2 row-span-2 h-full min-h-[220px] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 490]}
         sizes="(min-width: 768px) 40vw, 90vw"
       />
       <Image
-        src={neonSign}
-        alt="Papan neon bergaya barbershop"
+        src={skull}
+        alt="Dekorasi dark art tengkorak buatan Regi di sudut studio"
         class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[400, 800]}
+        widths={[400, 513]}
         sizes="(min-width: 768px) 40vw, 90vw"
       />
       <Image
-        src={kidHaircut}
-        alt="Anak-anak sedang dipangkas rambutnya"
-        class="col-span-1 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[300, 600]}
+        src={kid}
+        alt="Anak sekolah sedang dipangkas rambutnya di Punk'kas"
+        class="col-span-1 h-full min-h-[140px] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[300, 460]}
         sizes="(min-width: 768px) 20vw, 45vw"
       />
       <Image
-        src={skullCandle}
-        alt="Dekorasi dark art tengkorak dan lilin"
-        class="col-span-1 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[300, 600]}
+        src={portrait2}
+        alt="Pelanggan setelah dipangkas rambutnya di Punk'kas"
+        class="col-span-1 h-full min-h-[140px] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[300, 460]}
         sizes="(min-width: 768px) 20vw, 45vw"
       />
       <Image
-        src={beardTrim}
-        alt="Merapikan jenggot dengan gunting"
-        class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[400, 800]}
+        src={portrait1}
+        alt="Proses merapikan rambut pelanggan di Punk'kas"
+        class="col-span-2 h-full min-h-[140px] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 459]}
         sizes="(min-width: 768px) 40vw, 90vw"
       />
       <Image
-        src={clipperDetail}
-        alt="Detail alat cukur rambut"
-        class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
-        widths={[400, 800]}
+        src={portrait3}
+        alt="Pelanggan menunggu proses pangkas rambut selesai di Punk'kas"
+        class="col-span-2 h-full min-h-[140px] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 461]}
         sizes="(min-width: 768px) 40vw, 90vw"
       />
     </div>
