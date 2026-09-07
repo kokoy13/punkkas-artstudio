@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
+import heroImage from "../assets/placeholder/hero-barbershop-neon.jpg";
+import { site, whatsappLink } from "../data/site";
+---
+
+<section id="top" class="relative flex min-h-[100dvh] items-end overflow-hidden bg-void">
+  <Image
+    src={heroImage}
+    alt="Suasana barbershop gelap dengan lampu neon, referensi visual Punk'kas Art Studio"
+    class="absolute inset-0 h-full w-full object-cover object-[70%_30%]"
+    widths={[640, 1024, 1600, 2000]}
+    sizes="100vw"
+    fetchpriority="high"
+    loading="eager"
+  />
+
+  <div class="absolute inset-0 bg-gradient-to-t from-void via-void/85 to-void/40"></div>
+  <div class="absolute inset-0 bg-crimson/10 mix-blend-multiply"></div>
+
+  <div class="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-24 md:px-8 md:pb-24">
+    <div
+      id="status-pill"
+      class="mb-6 inline-flex items-center gap-2 border border-border bg-void/60 px-3 py-1.5 font-brand-mono text-xs uppercase tracking-wider text-ash"
+    >
+      <span id="status-dot" class="h-2 w-2 rounded-full bg-ash"></span>
+      <span id="status-text">Memuat jam buka</span>
+    </div>
+
+    <h1 class="font-display text-5xl uppercase leading-[0.95] text-bone sm:text-6xl md:text-7xl">
+      Pangkas Rambut<br />
+      <span class="text-ember">Rasa Seni</span>
+    </h1>
+
+    <p class="mt-6 max-w-[42ch] text-base text-ash md:text-lg">
+      Barbershop sekaligus galeri dark art di dalam terminal lama Guguak Katitiran, Batusangkar.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a
+        href={whatsappLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 bg-ember px-6 py-3.5 text-sm font-semibold text-void transition-colors hover:bg-bone"
+      >
+        <Icon name="whatsapp" class="h-4 w-4" />
+        Chat WhatsApp
+      </a>
+      <a
+        href={site.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 border border-bone/30 px-6 py-3.5 text-sm font-semibold text-bone transition-colors hover:border-bone"
+      >
+        <Icon name="instagram" class="h-4 w-4" />
+        Lihat Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { isOpenNow } from "../data/site";
+
+  const dot = document.getElementById("status-dot");
+  const text = document.getElementById("status-text");
+
+  function updateStatus() {
+    const open = isOpenNow();
+    if (!dot || !text) return;
+    if (open) {
+      dot.className = "h-2 w-2 rounded-full bg-open animate-pulse";
+      text.textContent = "Buka sekarang";
+      text.className = "text-open";
+    } else {
+      dot.className = "h-2 w-2 rounded-full bg-ash";
+      text.textContent = "Tutup";
+      text.className = "text-ash";
+    }
+  }
+
+  updateStatus();
+  setInterval(updateStatus, 60_000);
+</script>

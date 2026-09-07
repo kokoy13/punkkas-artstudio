@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import haircutAction from "../assets/placeholder/gallery-haircut-action.jpg";
+import neonSign from "../assets/placeholder/gallery-neon-sign.jpg";
+import kidHaircut from "../assets/placeholder/gallery-kid-haircut.jpg";
+import skullCandle from "../assets/placeholder/darkart-skull-candle.jpg";
+import beardTrim from "../assets/placeholder/gallery-beard-trim.jpg";
+import clipperDetail from "../assets/placeholder/detail-clipper.jpg";
+---
+
+<section id="galeri" class="bg-void py-20 md:py-32">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <h2 class="reveal font-display text-4xl uppercase text-bone md:text-5xl">Galeri</h2>
+    <p class="reveal mt-4 max-w-[60ch] text-ash">
+      Proses pangkas dan koleksi dark art yang menghiasi studio. Foto masih dari arsip
+      sementara, akan diganti dengan hasil jepretan asli Punk'kas.
+    </p>
+
+    <div
+      class="reveal mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[180px] md:gap-4"
+    >
+      <Image
+        src={haircutAction}
+        alt="Proses pangkas rambut di kursi barber"
+        class="col-span-2 row-span-2 h-full min-h-[220px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 800]}
+        sizes="(min-width: 768px) 40vw, 90vw"
+      />
+      <Image
+        src={neonSign}
+        alt="Papan neon bergaya barbershop"
+        class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 800]}
+        sizes="(min-width: 768px) 40vw, 90vw"
+      />
+      <Image
+        src={kidHaircut}
+        alt="Anak-anak sedang dipangkas rambutnya"
+        class="col-span-1 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[300, 600]}
+        sizes="(min-width: 768px) 20vw, 45vw"
+      />
+      <Image
+        src={skullCandle}
+        alt="Dekorasi dark art tengkorak dan lilin"
+        class="col-span-1 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[300, 600]}
+        sizes="(min-width: 768px) 20vw, 45vw"
+      />
+      <Image
+        src={beardTrim}
+        alt="Merapikan jenggot dengan gunting"
+        class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 800]}
+        sizes="(min-width: 768px) 40vw, 90vw"
+      />
+      <Image
+        src={clipperDetail}
+        alt="Detail alat cukur rambut"
+        class="col-span-2 h-full min-h-[140px] w-full object-cover transition-transform duration-300 hover:scale-[1.03] md:min-h-0"
+        widths={[400, 800]}
+        sizes="(min-width: 768px) 40vw, 90vw"
+      />
+    </div>
+  </div>
+</section>

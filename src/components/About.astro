@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/placeholder/about-barber-portrait.jpg";
+import darkart from "../assets/placeholder/darkart-skull-candles.jpg";
+---
+
+<section id="tentang" class="relative overflow-hidden bg-void py-20 md:py-32">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-12 md:gap-8 md:px-8">
+    <div class="reveal md:col-span-6 md:col-start-1">
+      <h2 class="font-display text-4xl uppercase leading-tight text-bone md:text-5xl">
+        Bukan sekadar<br /><span class="text-ember">pangkas rambut</span>
+      </h2>
+      <p class="mt-6 max-w-[58ch] text-ash">
+        Punk'kas Art Studio lahir dari tangan yang sama yang memegang gunting dan kuas.
+        Setiap sudut ruangan diisi karya dekorasi buatan sendiri, dari lampu petromak tua
+        sampai koleksi dark art yang dipajang berdampingan dengan kursi pangkas.
+      </p>
+      <p class="mt-4 max-w-[58ch] text-ash">
+        Sudut pandang yang berbeda ini yang membuat pelanggan tidak cuma pulang dengan
+        potongan rambut baru, tapi juga pengalaman duduk di tengah galeri kecil yang terus
+        berkembang.
+      </p>
+    </div>
+
+    <div class="reveal grid grid-cols-2 gap-4 md:col-span-6 md:col-start-7 md:mt-12">
+      <Image
+        src={portrait}
+        alt="Detail gunting rambut, gaya kerja barber Punk'kas"
+        class="col-span-2 h-64 w-full object-cover md:h-80"
+        widths={[400, 800]}
+        sizes="(min-width: 768px) 40vw, 90vw"
+      />
+      <Image
+        src={darkart}
+        alt="Dekorasi dark art buatan sendiri di dalam studio"
+        class="col-span-2 h-48 w-full translate-y-0 object-cover md:col-span-1 md:h-56 md:translate-y-8"
+        widths={[300, 600]}
+        sizes="(min-width: 768px) 20vw, 90vw"
+      />
+      <div
+        class="col-span-2 flex h-48 flex-col justify-center border border-border bg-surface p-6 md:col-span-1 md:h-56"
+      >
+        <span class="font-display text-4xl text-ember">10+</span>
+        <span class="mt-2 text-sm text-ash">karya dekorasi dark art terpasang di studio</span>
+      </div>
+    </div>
+  </div>
+</section>

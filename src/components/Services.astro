@@ -1,0 +1,41 @@
+---
+import Icon from "./Icon.astro";
+import { services, whatsappLink } from "../data/site";
+---
+
+<section id="layanan" class="bg-surface py-20 md:py-32">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="reveal flex items-end justify-between gap-6">
+      <h2 class="font-display text-4xl uppercase text-bone md:text-5xl">Layanan</h2>
+      <Icon name="scissors" class="h-8 w-8 shrink-0 text-ember" />
+    </div>
+
+    <div class="reveal mt-10 divide-y divide-border border-t border-border">
+      {
+        services.map((service) => (
+          <div class="flex items-center justify-between gap-4 py-5">
+            <span class="text-lg text-bone">{service.name}</span>
+            <span class="font-brand-mono text-sm text-ember whitespace-nowrap">
+              Rp {service.price}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="reveal mt-6 max-w-[60ch] text-sm text-ash">
+      Harga dapat berubah tergantung model dan panjang rambut. Konfirmasi harga pasti lewat
+      WhatsApp sebelum datang.
+    </p>
+
+    <a
+      href={whatsappLink("Halo Punk'kas, saya mau tanya harga pangkas rambut")}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="reveal mt-6 inline-flex items-center gap-2 border border-ember px-6 py-3 text-sm font-medium text-ember transition-colors hover:bg-ember hover:text-void"
+    >
+      Tanya harga lewat WhatsApp
+      <Icon name="arrow-right" class="h-4 w-4" />
+    </a>
+  </div>
+</section>

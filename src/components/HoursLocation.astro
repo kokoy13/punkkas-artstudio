@@ -1,0 +1,53 @@
+---
+import Icon from "./Icon.astro";
+import { site } from "../data/site";
+
+const mapsEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(site.mapsQuery)}&output=embed`;
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`;
+---
+
+<section id="lokasi" class="border-t border-border bg-surface py-20 md:py-32">
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+      <div class="reveal">
+        <h2 class="font-display text-4xl uppercase text-bone md:text-5xl">Jam &amp; Lokasi</h2>
+
+        <div class="mt-8 divide-y divide-border border-t border-border">
+          {
+            site.hours.map((slot) => (
+              <div class="flex items-center justify-between py-4">
+                <span class="text-bone">{slot.days}</span>
+                <span class="font-brand-mono text-ember">{slot.time}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 flex items-start gap-3">
+          <Icon name="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-ember" />
+          <p class="text-ash">{site.address}</p>
+        </div>
+
+        <a
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-2 border border-bone/30 px-6 py-3 text-sm font-medium text-bone transition-colors hover:border-bone"
+        >
+          Buka di Google Maps
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </div>
+
+      <div class="reveal h-72 border border-border md:h-full md:min-h-[360px]">
+        <iframe
+          src={mapsEmbedSrc}
+          class="h-full w-full grayscale invert-[0.92] contrast-[1.1]"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Punk'kas Art Studio"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import { getImage } from "astro:assets";
+import heroImage from "../assets/placeholder/hero-barbershop-neon.jpg";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Punk'kas Art Studio - Pangkas Rambut Batusangkar",
+  description = "Punk'kas Art Studio, pangkas rambut di Terminal Guguak Katitiran, Batusangkar. Buka Senin-Jumat 19.00-23.00, Sabtu-Minggu 16.00-23.00.",
+} = Astro.props;
+
+const ogImage = await getImage({ src: heroImage, width: 1200, height: 630 });
+const ogImageUrl = new URL(ogImage.src, Astro.site ?? Astro.url.origin).href;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#15110d" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+  </head>
+  <body class="font-body">
+    <div class="grain-overlay"></div>
+    <slot />
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      );
+
+      revealEls.forEach((el) => {
+        // Content already scrolled past above the fold (e.g. a direct #anchor
+        // link on load) would otherwise never cross the observer's threshold
+        // and stay invisible forever, so reveal it immediately instead.
+        if (el.getBoundingClientRect().bottom < 0) {
+          el.classList.add("is-visible");
+        } else {
+          observer.observe(el);
+        }
+      });
+    </script>
+  </body>
+</html>

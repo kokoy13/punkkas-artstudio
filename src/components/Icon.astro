@@ -1,0 +1,31 @@
+---
+import whatsapp from "@phosphor-icons/core/assets/bold/whatsapp-logo-bold.svg?raw";
+import instagram from "@phosphor-icons/core/assets/bold/instagram-logo-bold.svg?raw";
+import mapPin from "@phosphor-icons/core/assets/bold/map-pin-bold.svg?raw";
+import clock from "@phosphor-icons/core/assets/bold/clock-bold.svg?raw";
+import scissors from "@phosphor-icons/core/assets/bold/scissors-bold.svg?raw";
+import arrowRight from "@phosphor-icons/core/assets/bold/arrow-right-bold.svg?raw";
+import list from "@phosphor-icons/core/assets/bold/list-bold.svg?raw";
+import x from "@phosphor-icons/core/assets/bold/x-bold.svg?raw";
+
+const icons: Record<string, string> = {
+  whatsapp,
+  instagram,
+  "map-pin": mapPin,
+  clock,
+  scissors,
+  "arrow-right": arrowRight,
+  list,
+  x,
+};
+
+interface Props {
+  name: keyof typeof icons;
+  class?: string;
+}
+
+const { name, class: className = "" } = Astro.props;
+const svg = icons[name].replace("<svg ", `<svg class="${className}" `);
+---
+
+<Fragment set:html={svg} />
