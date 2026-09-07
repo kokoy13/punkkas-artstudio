@@ -7,8 +7,8 @@ export const site = {
   whatsappNumber: "6282391292827",
   whatsappMessage: "Halo Punk'kas, saya mau pangkas rambut",
   address: "Terminal Guguak Katitiran, Batusangkar, Tanah Datar, Sumatera Barat",
-  // Google Maps share link asli dari pemilik (maps.app.goo.gl/9JVwCKMcetKGYJCB8).
-  mapsUrl: "https://maps.app.goo.gl/9JVwCKMcetKGYJCB8",
+  // Pin resmi "Punkkas Art Studio" di Google Maps (maps.app.goo.gl/S5BeNySih1rMfzP49).
+  mapsUrl: "https://maps.app.goo.gl/S5BeNySih1rMfzP49",
   hours: [
     { days: "Senin - Jumat", time: "19.00 - 23.00" },
     { days: "Sabtu - Minggu", time: "16.00 - 23.00" },
@@ -16,7 +16,13 @@ export const site = {
 } as const;
 
 export function whatsappLink(message = site.whatsappMessage) {
-  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const params = new URLSearchParams({
+    phone: site.whatsappNumber,
+    text: message,
+    type: "phone_number",
+    app_absent: "0",
+  });
+  return `https://api.whatsapp.com/send/?${params.toString()}`;
 }
 
 function openWindow(date: Date) {
@@ -44,10 +50,12 @@ export function nextOpenLabel(date = new Date()) {
   return `Buka besok jam ${String(Math.floor(tomorrowStart / 60)).padStart(2, "0")}.00`;
 }
 
-// TODO: konfirmasi ulang daftar layanan dan harga ke pemilik sebelum publish.
+// Harga rata untuk semua layanan pangkas di Punk'kas.
+export const flatPrice = "20.000";
+
 export const services = [
-  { name: "Pangkas rambut dewasa", price: "25rb - 35rb" },
-  { name: "Pangkas rambut anak", price: "20rb - 30rb" },
-  { name: "Cukur jenggot dan rapikan", price: "15rb - 20rb" },
-  { name: "Pangkas plus cuci rambut", price: "35rb - 45rb" },
+  "Pangkas dewasa",
+  "Pangkas anak-anak",
+  "Cukur jenggot",
+  "Cuci rambut",
 ] as const;

@@ -1,6 +1,6 @@
 ---
 import Icon from "./Icon.astro";
-import { services, whatsappLink } from "../data/site";
+import { services, flatPrice, whatsappLink } from "../data/site";
 ---
 
 <section id="layanan" class="bg-surface py-20 md:py-32">
@@ -10,32 +10,38 @@ import { services, whatsappLink } from "../data/site";
       <Icon name="scissors" class="h-8 w-8 shrink-0 text-ember" />
     </div>
 
-    <div class="reveal mt-10 divide-y divide-border border-t border-border">
-      {
-        services.map((service) => (
-          <div class="flex items-center justify-between gap-4 py-5">
-            <span class="text-lg text-bone">{service.name}</span>
-            <span class="font-brand-mono text-sm text-ember whitespace-nowrap">
-              Rp {service.price}
-            </span>
-          </div>
-        ))
-      }
+    <div class="reveal mt-12 grid gap-10 border-t border-border pt-12 md:grid-cols-2 md:items-center md:gap-16">
+      <div>
+        <p class="text-ash">Satu harga untuk semua gaya, tanpa nego.</p>
+        <div class="mt-3 flex items-baseline gap-2">
+          <span class="font-brand-mono text-xl text-ash">Rp</span>
+          <span class="font-display text-7xl leading-none text-ember md:text-8xl">
+            {flatPrice}
+          </span>
+        </div>
+        <p class="mt-5 max-w-[46ch] text-ash">
+          Potongan dewasa, anak-anak, cukur jenggot, sampai cuci rambut, semua rata.
+          Datang saja, tidak perlu tanya harga dulu.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap content-start gap-3 md:justify-end">
+        {
+          services.map((service) => (
+            <span class="border border-border px-4 py-2 text-sm text-bone">{service}</span>
+          ))
+        }
+      </div>
     </div>
 
-    <p class="reveal mt-6 max-w-[60ch] text-sm text-ash">
-      Harga dapat berubah tergantung model dan panjang rambut. Konfirmasi harga pasti lewat
-      WhatsApp sebelum datang.
-    </p>
-
     <a
-      href={whatsappLink("Halo Punk'kas, saya mau tanya harga pangkas rambut")}
+      href={whatsappLink()}
       target="_blank"
       rel="noopener noreferrer"
-      class="reveal mt-6 inline-flex items-center gap-2 border border-ember px-6 py-3 text-sm font-medium text-ember transition-colors hover:bg-ember hover:text-void"
+      class="reveal mt-10 inline-flex items-center gap-2 bg-ember px-6 py-3.5 text-sm font-semibold text-void transition-colors hover:bg-bone"
     >
-      Tanya harga lewat WhatsApp
-      <Icon name="arrow-right" class="h-4 w-4" />
+      <Icon name="whatsapp" class="h-4 w-4" />
+      Chat WhatsApp
     </a>
   </div>
 </section>
